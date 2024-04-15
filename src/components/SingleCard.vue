@@ -2,6 +2,7 @@
 
 export default {
     name: 'SingleCard',
+    props: ['cardInfo']
 }
 
 </script>
@@ -9,14 +10,13 @@ export default {
 <template>
 
     <div class="ms-single-card text-center">
-        <img src="https://images.ygoprodeck.com/images/cards_small/34541863.jpg" alt="">
-        <div class="text-white text-uppercase h5 py-3">
-            name
+        <img :src="cardInfo.card_images[0].image_url_small" alt="">
+        <div id="card-name" class="text-white text-uppercase py-3">
+            {{ cardInfo.name }}
         </div>
         <div class="pb-4">
-            Species
+            {{ cardInfo.archetype }}
         </div>
-
     </div>
 
 </template>
@@ -30,6 +30,12 @@ export default {
 
     img {
         width: 100%;
+    }
+
+    #card-name {
+        font-size: 18px;
+        padding-inline: 2px;
+        word-wrap: break-word;
     }
 }
 </style>
