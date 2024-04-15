@@ -1,10 +1,16 @@
 <script>
+import { store } from '../store.js'
 import SingleCard from './SingleCard.vue';
 
 export default {
     name: 'AppMainCards',
     components: {
         SingleCard
+    },
+    data() {
+        return {
+            store
+        }
     }
 }
 
@@ -21,11 +27,7 @@ export default {
                 </div>
                 <!-- cards  -->
                 <div class="d-flex justify-content-around flex-wrap gap-4">
-                    <SingleCard></SingleCard>
-                    <SingleCard></SingleCard>
-                    <SingleCard></SingleCard>
-                    <SingleCard></SingleCard>
-                    <SingleCard></SingleCard>
+                    <SingleCard v-for="card in store.cards.data" :key="card.id" :cardInfo="card"></SingleCard>
                 </div>
             </div>
 
