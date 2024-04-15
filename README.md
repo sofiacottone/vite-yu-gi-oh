@@ -1,7 +1,9 @@
-# Vue 3 + Vite
+# Yu-Gi-Oh Deck 🃏
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+<img width="30" height="30" src="https://img.icons8.com/color/30/html-5--v1.png" alt="html-5--v1"/> <img width="30" height="30" src="https://img.icons8.com/color/30/bootstrap--v2.png" alt="bootstrap--v2"/> <img width="30" height="30" src="https://img.icons8.com/color/48/sass-avatar.png" alt="sass-avatar"/> <img width="30" height="30" src="https://img.icons8.com/color/30/javascript--v1.png" alt="javascript--v1"/> <img width="30" height="30" src="https://img.icons8.com/color/48/vue-js.png" alt="vue-js"/> <img width="30" height="30" src="https://img.icons8.com/fluency/48/vite.png" alt="vite"/> <img width="30" height="30" src="https://img.icons8.com/plasticine/100/api-settings.png" alt="api-settings"/>
 
-## Recommended IDE Setup
+---
 
-- [VS Code](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (previously Volar) and disable Vetur
+Yu-Gi-Oh Deck with vite + vue 3. All cards data were extracted from an API using axios.
+
+
