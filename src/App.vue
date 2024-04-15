@@ -3,11 +3,13 @@ import axios from 'axios';
 import { store } from './store.js'
 import AppHeader from './components/AppHeader.vue'
 import AppMainCards from './components/AppMainCards.vue'
+import AppLoader from './components/AppLoader.vue';
 
 export default {
     components: {
         AppHeader,
-        AppMainCards
+        AppMainCards,
+        AppLoader
     },
     data() {
         return {
@@ -33,7 +35,8 @@ export default {
     <AppHeader></AppHeader>
 
     <main>
-        <AppMainCards></AppMainCards>
+        <AppMainCards v-if="!store.isLoading"></AppMainCards>
+        <AppLoader v-else></AppLoader>
     </main>
 </template>
 
