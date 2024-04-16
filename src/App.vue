@@ -27,10 +27,12 @@ export default {
         getCardsFromApi() {
             let apiUrl = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0';
 
-            if (store.selectedItem !== '') {
+            if (store.selectedItem == '') {
+                this.queryParams.archetype = undefined;
+            } else {
                 this.queryParams.archetype = store.selectedItem;
             };
-
+            console.log(this.queryParams.archetype);
             axios.get(apiUrl, {
                 params: this.queryParams
             })
@@ -57,7 +59,7 @@ export default {
     <AppHeader></AppHeader>
 
     <main>
-        <AppSelect @selectionPerformed="getCardsFromApi"></AppSelect>
+        <AppSelect @selectionPerformed="getCardsFromApi" @click="getCardsFromApi()"></AppSelect>
         <AppMainCards v-if="!store.isLoading"></AppMainCards>
         <AppLoader v-else></AppLoader>
     </main>
