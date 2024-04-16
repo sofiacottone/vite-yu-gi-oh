@@ -16,24 +16,31 @@ export default {
     },
     data() {
         return {
-            store
+            store,
+            queryParams: {
+                num: 20,
+                offset: 0,
+            }
         };
     },
     methods: {
         getCardsFromApi() {
-            axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
+            let apiUrl = 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0';
+
+            if (store.selectedItem !== '') {
+                this.queryParams.archetype = store.selectedItem;
+            };
+
+            axios.get(apiUrl, {
+                params: this.queryParams
+            })
                 .then((response) => {
                     store.cards = response.data;
                     store.isLoading = false;
                 });
         },
         getArchetypesFromApi() {
-            let apiUrl = 'https://db.ygoprodeck.com/api/v7/archetypes.php';
-            const queryParams = {};
-
-            axios.get(apiUrl, {
-                params: queryParams
-            })
+            axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
                 .then((response) => {
                     store.archetypes = response.data
                 })
@@ -50,7 +57,7 @@ export default {
     <AppHeader></AppHeader>
 
     <main>
-        <AppSelect></AppSelect>
+        <AppSelect @selectionPerformed="getCardsFromApi"></AppSelect>
         <AppMainCards v-if="!store.isLoading"></AppMainCards>
         <AppLoader v-else></AppLoader>
     </main>
