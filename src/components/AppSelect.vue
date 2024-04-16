@@ -15,7 +15,7 @@ export default {
 
 <template>
     <div class="pt-4 ps-5">
-        <select v-model="store.selectedItem" class="border-1 rounded p-1">
+        <select @change="$emit('selectionPerformed')" v-model="store.selectedItem" class="border-1 rounded p-1">
             <option value="">Select Archetype</option>
 
             <!-- options -->
