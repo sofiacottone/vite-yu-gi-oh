@@ -7,6 +7,11 @@ export default {
         return {
             store
         }
+    },
+    methods: {
+        resetSelection() {
+            store.selectedItem = '';
+        }
     }
 
 }
@@ -14,8 +19,8 @@ export default {
 </script>
 
 <template>
-    <div class="pt-4 ps-5">
-        <select @change="$emit('selectionPerformed')" v-model="store.selectedItem" class="border-1 rounded p-1">
+    <div class="d-flex align-items-center pt-4 ps-5">
+        <select @change="$emit('selectionPerformed')" v-model="store.selectedItem" class="border-1 rounded p-1 me-1">
             <option value="">Select Archetype</option>
 
             <!-- options -->
@@ -24,6 +29,8 @@ export default {
             </option>
 
         </select>
+
+        <button @click="resetSelection()" class="btn btn-light py-1 px-2" type="reset">Reset</button>
 
     </div>
 
