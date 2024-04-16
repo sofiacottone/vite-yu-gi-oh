@@ -19,14 +19,14 @@ export default {
 <template>
     <div class="container-fluid">
         <div class="d-flex justify-content-center align-items-center">
-            <div class="container d-flex flex-column justify-content-center align-items-center bg-light p-5 m-5">
-                <div class="bg-dark">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis ratione quis impedit porro illum
-                    fugit iusto quidem accusamus quod libero quam amet cupiditate perspiciatis modi atque labore, culpa
-                    voluptatibus voluptates!
+            <div class="container d-flex flex-column justify-content-center align-items-center bg-light px-5 py-4 m-4">
+
+                <!-- results  -->
+                <div class="bg-dark text-white w-100 py-3 px-2">
+                    Cards found: {{ store.cards.data.length }}
                 </div>
                 <!-- cards  -->
-                <div class="d-flex justify-content-around flex-wrap gap-4">
+                <div class="d-flex flex-wrap gap-4">
                     <SingleCard v-for="card in store.cards.data" :key="card.id" :cardInfo="card"></SingleCard>
                 </div>
             </div>
